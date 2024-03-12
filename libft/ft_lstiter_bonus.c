@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:12:51 by eviscont          #+#    #+#             */
-/*   Updated: 2023/10/10 17:34:40 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/03/12 13:05:39 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	while (lst != 0)
+	while (lst != NULL)
 	{
 		f(lst->content);
 		lst = lst->next;

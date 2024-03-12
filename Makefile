@@ -6,7 +6,7 @@
 #    By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 13:59:06 by eviscont          #+#    #+#              #
-#    Updated: 2024/03/07 14:01:33 by eviscont         ###   ########.fr        #
+#    Updated: 2024/03/07 16:17:14 by eviscont         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 
 # Ficheros
-SRCS = 
+SRCS = main.c
 OBJS = $(SRCS:.c=.o)
 HEADER = push_swap.h
 
