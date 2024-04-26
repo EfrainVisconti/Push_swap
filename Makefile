@@ -6,12 +6,13 @@
 #    By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 13:59:06 by eviscont          #+#    #+#              #
-#    Updated: 2024/03/07 16:17:14 by eviscont         ###   ########.fr        #
+#    Updated: 2024/04/26 21:52:31 by eviscont         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Comandos
-CFLAGS = -Wall -Wextra -Werror
+# -g para debugear con lldb
+CFLAGS = -Wall -Wextra -Werror -g
 
 # Nombre ejecutable
 NAME = push_swap

@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:03:14 by eviscont          #+#    #+#             */
-/*   Updated: 2024/03/12 13:17:50 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/04/26 15:49:04 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 
 # include "libft/libft.h"
 
-typedef struct s_vec
-{
-	int	x;
-	int	y;
-}	t_vec;
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
 
-typedef struct s_list
+typedef struct s_stack
 {
-	void			*content;
-	struct s_list	*next;
-}					t_list;
+	int				value;
+	int				index;
+	int				cost;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+}					t_stack;
 
 #endif
