@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
+/*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:58:07 by eviscont          #+#    #+#             */
-/*   Updated: 2024/04/26 21:45:12 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/04/30 00:26:21 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ int	check_args(char **argv, int i, int j)
 		{
 			if (argv[i][j] == '+' || argv[i][j] == '-')
 			{
-				j++;
-				if (!ft_isdigit(argv[i][j]))
+				if (!ft_isdigit(argv[i][++j]))
 					return (0);
 			}
 			else if (ft_isdigit(argv[i][j]))
@@ -60,11 +59,20 @@ int	main(int argc, char **argv)
 {
 	//t_stack	a;
 	//t_stack	b;
-	(void)argc;
-
-	if (check_args(argv, 1, 0) == 0)
-		ft_error();
-	else
-		ft_printf("nada");
+	
+	if (argc == 2)
+	{
+		if (check_args(argv, 1, 0) == 0 || argv[1][0] == '\0')
+			ft_error();
+		else
+			ft_printf("nada\n");
+	}
+	if (argc > 2)
+	{
+		if (check_args(argv, 1, 0) == 0)
+			ft_error();
+		else
+			ft_printf("nothing\n");
+	}
 	return (0);
 }
