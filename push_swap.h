@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:03:14 by eviscont          #+#    #+#             */
-/*   Updated: 2024/04/26 15:49:04 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/04/30 19:15:30 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,18 @@ typedef struct s_stack
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }					t_stack;
+
+int	main(int argc, char **argv);
+void	quoted_parse(char *argv, t_stack **a);
+void	stack_init(char **argv, t_stack **a, int i);
+int	check_args(char **argv, int i, int j);
+int	ft_isvalid(int c);
+void	ft_error(void);
+void	add_front_node(t_list **lst, t_list *new);
+int	stack_size(t_stack *lst);
+void	add_back_node(t_stack **lst, t_stack *new);
+t_stack	*last_node(t_stack *lst);
+t_stack	*new_node(int content);
+void	print_aux(t_stack *lst);
 
 #endif
