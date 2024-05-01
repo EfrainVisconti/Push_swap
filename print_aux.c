@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 19:04:29 by eviscont          #+#    #+#             */
-/*   Updated: 2024/04/30 19:19:47 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/01 11:03:51 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	print_aux(t_stack *lst)
 {
 	while (lst)
 	{
-		ft_printf("%d ", lst->value);
+		ft_printf("%d ", lst->nbr);
 		lst = lst->next;
 	}
 	ft_printf("\n");
