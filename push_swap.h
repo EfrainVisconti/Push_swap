@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:03:14 by eviscont          #+#    #+#             */
-/*   Updated: 2024/04/30 19:15:30 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/01 14:53:04 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 typedef struct s_stack
 {
-	int				value;
+	int				nbr;
 	int				index;
 	int				cost;
 	struct s_stack	*next;
@@ -29,7 +29,7 @@ typedef struct s_stack
 
 int	main(int argc, char **argv);
 void	quoted_parse(char *argv, t_stack **a);
-void	stack_init(char **argv, t_stack **a, int i);
+void	stack_init(char **argv, int argc, t_stack **a, int i);
 int	check_args(char **argv, int i, int j);
 int	ft_isvalid(int c);
 void	ft_error(void);
@@ -38,6 +38,11 @@ int	stack_size(t_stack *lst);
 void	add_back_node(t_stack **lst, t_stack *new);
 t_stack	*last_node(t_stack *lst);
 t_stack	*new_node(int content);
+int	ft_atoi_push(char *str, char **array);
+void	free_array(char **array);
+void	free_stack(t_stack **a);
+int	check_duplicates(char **argv, int i);
+
 void	print_aux(t_stack *lst);
 
 #endif
