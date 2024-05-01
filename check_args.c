@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 19:30:28 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/01 15:12:52 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/01 15:37:25 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ int	check_duplicates(char **argv, int i)
 {
 	int j;
 	
-	if (*argv[i] == '\0')
-		return (0);
 	while (argv[i] != NULL)
 	{
+		if (*argv[i] == '\0')
+			return (0);
 		j = i + 1;
 		while (argv[j] != NULL)
 		{
