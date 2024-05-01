@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:14:21 by eviscont          #+#    #+#             */
-/*   Updated: 2024/04/30 18:56:29 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/01 11:04:43 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_stack	*new_node(int content)
 	new = malloc(sizeof(t_stack));
 	if (!new)
 		ft_error();
-	new->value = content;
+	new->nbr = content;
 	new->next = NULL;
 	return (new);
 }
