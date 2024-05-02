@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:58:07 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/01 14:53:26 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/02 15:53:37 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ void	stack_init(char **argv, int argc, t_stack **a, int i)
 	}
 	if (argc == 2)
 		free_array(argv);
+	if (check_sorted(*a) == 1)
+		{
+			free_stack(a);
+			exit (0);
+		}
 }
 
 void	quoted_parse(char *argv, t_stack **a)
@@ -40,8 +45,10 @@ void	quoted_parse(char *argv, t_stack **a)
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
+	t_stack *b;
 
 	a = NULL;
+	b = NULL;
 	if (argc == 2)
 	{
 		if (check_args(argv, 1, 0) == 0 || argv[1][0] == '\0')
@@ -56,6 +63,8 @@ int	main(int argc, char **argv)
 		else
 			stack_init(argv, argc, &a, 1);
 	}
+	print_aux(a);
+	sa(&a);
 	print_aux(a);
 	free_stack(&a);
 	return (0);
