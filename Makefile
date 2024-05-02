@@ -6,7 +6,7 @@
 #    By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 13:59:06 by eviscont          #+#    #+#              #
-#    Updated: 2024/05/02 15:57:07 by eviscont         ###   ########.fr        #
+#    Updated: 2024/05/02 20:09:10 by eviscont         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 NAME = push_swap
 
 # Ficheros
-SRCS = main.c lst_utils.c check_args.c utils.c print_aux.c swap.c push.c
+SRCS = main.c lst_utils.c check_args.c utils.c print_aux.c swap.c push.c rotate.c reverse_rotate.c
 OBJS = $(SRCS:.c=.o)
 HEADER = push_swap.h
 

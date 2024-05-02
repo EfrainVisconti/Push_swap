@@ -1,42 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 15:55:48 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/02 19:50:55 by eviscont         ###   ########.fr       */
+/*   Created: 2024/05/02 18:52:13 by eviscont          #+#    #+#             */
+/*   Updated: 2024/05/02 20:03:09 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push_stack(t_stack **dst, t_stack **src)
+int	rotate_stack(t_stack **lst)
 {
-	t_stack *temp1;
-	t_stack *temp2;
-	t_stack *temp3;
+	t_stack *temp;
 
-	if (*src == NULL)
+	if (*lst == NULL || (*lst)->next == NULL)
 		return (0);
-	temp1 = *src;
-	temp2 = (*src)->next;
-	temp3 = *dst;
-	*dst = temp1;
-	*src = temp2;
-	(*dst)->next = temp3;
+	temp = *lst;
+	*lst = last_node(*lst);
+	(*lst)->next = temp;
+	*lst = temp->next;
+	temp->next = NULL;
 	return (1);
 }
 
-void	pa(t_stack **a, t_stack **b)
+void	ra(t_stack **a)
 {
-	if (push_stack(a, b) == 1)
-		ft_printf("pa\n");
+	if (rotate_stack(a) == 1)
+		ft_printf("ra\n");
 }
 
-void	pb(t_stack **b, t_stack **a)
+void	rb(t_stack **b)
 {
-	if (push_stack(b, a) == 1)
-		ft_printf("pb\n");
+	if (rotate_stack(b) == 1)
+		ft_printf("rb\n");
+}
+
+void	rr(t_stack **a, t_stack **b)
+{
+	if (rotate_stack(a) == 1 && (rotate_stack(b) == 1))
+		ft_printf("rr\n");
 }
