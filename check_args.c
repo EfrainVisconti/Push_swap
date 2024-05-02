@@ -6,11 +6,22 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 19:30:28 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/01 15:37:25 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/02 12:42:15 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	check_sorted(t_stack *lst)
+{
+	while (lst->next != NULL)
+	{
+		if (lst->nbr > lst->next->nbr)
+			return (0);
+		lst = lst->next;
+	}
+	return (1);
+}
 
 int	check_duplicates(char **argv, int i)
 {
