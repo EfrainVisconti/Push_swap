@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:03:14 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/01 14:53:04 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/02 15:54:32 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ int	ft_atoi_push(char *str, char **array);
 void	free_array(char **array);
 void	free_stack(t_stack **a);
 int	check_duplicates(char **argv, int i);
+int	check_sorted(t_stack *lst);
+void	swap_stack(t_stack **a);
+void	sa(t_stack **a);
+void	sb(t_stack **b);
+void	ss(t_stack **a, t_stack **b);
 
 void	print_aux(t_stack *lst);
 
