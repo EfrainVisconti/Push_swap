@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:03:14 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/03 18:11:23 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/03 19:07:30 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	stack_size(t_stack *lst);
 void	add_back_node(t_stack **lst, t_stack *new);
 t_stack	*last_node(t_stack *lst);
 t_stack	*new_node(int content);
-int	ft_atoi_push(char *str, char **array);
+int	ft_atoi_push(char *str);
 void	free_array(char **array);
 void	free_stack(t_stack **a);
 int	check_duplicates(char **argv, int i);

@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:58:07 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/03 18:38:31 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/03 19:07:41 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	stack_init(char **argv, int argc, t_stack **a, int i)
 	while (argv[i] != NULL)
 	{
 		if (argv)
-		add_back_node(a, new_node(ft_atoi_push(argv[i], argv)));
+		add_back_node(a, new_node(ft_atoi_push(argv[i])));
 		i++;
 	}
 	if (argc == 2)

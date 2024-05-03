@@ -6,11 +6,16 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 13:59:04 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/03 19:01:10 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/03 19:22:33 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_bigger()
+{
+	
+}
 
 void	sort_three(t_stack **lst)
 {
