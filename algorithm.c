@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 13:59:04 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/03 18:34:14 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/03 19:01:10 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,40 @@
 
 void	sort_three(t_stack **lst)
 {
-	if ((*lst)->nbr > ((*lst)->next)->nbr &&
+	if ((*lst)->nbr < (((*lst)->next)->next)->nbr &&
 		((*lst)->next)->nbr < (((*lst)->next)->next)->nbr)
-			
+			sa(lst);
+	else if ((*lst)->nbr > (((*lst)->next)->next)->nbr &&
+		(*lst)->nbr < ((*lst)->next)->nbr)
+			rra(lst);
+	else if ((*lst)->nbr > (((*lst)->next)->next)->nbr &&
+		((*lst)->next)->nbr < (((*lst)->next)->next)->nbr)
+			ra(lst);
+	else if ((*lst)->nbr < (((*lst)->next)->next)->nbr &&
+		((*lst)->next)->nbr > (((*lst)->next)->next)->nbr)
+		{
+			sa(lst);
+			ra(lst);
+		}
+	else
+	{
+		ra(lst);
+		sa(lst);
+	}
 }
 
 void	sort_start(t_stack **a, t_stack **b)
 {
+	b++;
 	if (stack_size(*a) == 2)
 	{
 		sa(a);
 	}
-	if (stack_size(*a) == 3)
+	else if (stack_size(*a) == 3)
+	{
+		sort_three(a);
+	}
+	else
 	{
 		
 	}

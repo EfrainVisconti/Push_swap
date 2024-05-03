@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 10:20:16 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/03 18:10:53 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/03 19:02:13 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_atoi_push(char *str, char **array)
 		i++;
 	}
 	if ((num * neg) > INT_MAX || (num * neg) < INT_MIN)
-		return (free(str), free_array(array), ft_error(), 0);
+		return (free_array(array), ft_error(), 0);
 	return (num * neg);
 }
 
