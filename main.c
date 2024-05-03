@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:58:07 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/02 15:53:37 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/03 18:12:13 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ int	main(int argc, char **argv)
 		else
 			stack_init(argv, argc, &a, 1);
 	}
-	print_aux(a);
-	sa(&a);
 	print_aux(a);
 	free_stack(&a);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:14:21 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/01 11:04:43 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/03 14:13:23 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,4 @@ int	stack_size(t_stack *lst)
 		count++;
 	}
 	return (count);
-}
-
-//Agrega un nodo al inicio de la lista
-void	add_front_node(t_list **lst, t_list *new)
-{
-	if (lst)
-	{
-		if (*lst)
-		{
-			new->next = *lst;
-		}
-		*lst = new;
-	}
 }
