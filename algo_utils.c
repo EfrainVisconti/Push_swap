@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 20:00:59 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/05 21:38:19 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/05 21:49:52 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,9 @@ void	set_index_updown(t_stack *lst)
 		i++;
 		lst = lst->next;
 	}
+}
+
+void	set_cost(t_stack *a, t_stack *b)
+{
+	if (a->index)
 }
