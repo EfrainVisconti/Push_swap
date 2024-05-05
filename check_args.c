@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 19:30:28 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/02 12:42:15 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/05 19:58:44 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	check_duplicates(char **argv, int i)
 		j = i + 1;
 		while (argv[j] != NULL)
 		{
-			if (ft_atoi_push(argv[i], argv) == ft_atoi_push(argv[j], argv))
+			if (ft_atoi_push(argv[i]) == ft_atoi_push(argv[j]))
 				return (0);
 			j++;
 		}

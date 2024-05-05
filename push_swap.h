@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:03:14 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/03 19:07:30 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/05 21:42:16 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ typedef struct s_stack
 {
 	int				nbr;
 	int				index;
+	int				updown; //-1 para abajo, 1 para arriba
+	int				target;
 	int				cost;
 	struct s_stack	*next;
-	struct s_stack	*prev;
 }					t_stack;
 
 int	main(int argc, char **argv);
@@ -60,6 +61,8 @@ void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 void	sort_start(t_stack **a, t_stack **b);
 void	sort_three(t_stack **lst);
+t_stack	*find_max(t_stack *lst, long max_nbr);
+void	set_target(t_stack *a, t_stack *b);
 
 void	print_aux(t_stack *lst);
 
