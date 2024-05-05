@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
+/*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 20:00:59 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/05 21:49:52 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/06 01:43:02 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	set_index_updown(t_stack *lst)
 	len = stack_size(lst);
 	half = (len / 2);
 	i = 0;
-	while (lst->next != NULL)
+	while (lst)
 	{	
 		lst->index = i;
 		if (i > half)
@@ -48,5 +48,26 @@ void	set_index_updown(t_stack *lst)
 
 void	set_cost(t_stack *a, t_stack *b)
 {
-	if (a->index)
+	while (a)
+	{
+		if (a->updown == 1 && a->target->updown == -1)
+			a->cost = a->index + (stack_size(b) - a->target->index);
+		else if (a->updown == 1 && a->target->updown == 1) 
+		{
+			if (a->index >= a->target->index)
+				a->cost = a->index;
+			else
+				a->cost = a->target->index;
+		}
+		else if (a->updown == -1 && a->target->updown == 1)
+			a->cost = (stack_size(a) - a->index) + a->target->index;
+		else if (a->updown == -1 && a->target->updown == -1)
+		{
+			if ((stack_size(a) - a->index) >= (stack_size(b) - a->target->index))
+				a->cost = (stack_size(a) - a->index);
+			else
+				a->cost = (stack_size(b) - a->target->index);
+		}
+		a = a->next;
+	}
 }

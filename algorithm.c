@@ -3,18 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
+/*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 13:59:04 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/03 19:22:33 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/06 01:43:47 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_bigger()
+void	sort_bigger(t_stack **a, t_stack **b)
 {
-	
+	pb(b, a);
+	pb(b, a);
+	pb(b, a);
+	if ((*b)->nbr < (*b)->next->nbr)
+		sb(b);
+	set_index_updown(*a);
+	set_index_updown(*b);
+	set_target(*a, *b);
+	set_cost(*a, *b);
 }
 
 void	sort_three(t_stack **lst)
@@ -43,7 +51,6 @@ void	sort_three(t_stack **lst)
 
 void	sort_start(t_stack **a, t_stack **b)
 {
-	b++;
 	if (stack_size(*a) == 2)
 	{
 		sa(a);
@@ -54,6 +61,6 @@ void	sort_start(t_stack **a, t_stack **b)
 	}
 	else
 	{
-		
+		sort_bigger(a, b);
 	}
 }

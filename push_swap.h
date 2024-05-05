@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
+/*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:03:14 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/05 21:42:16 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/06 00:55:00 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_stack
 	int				nbr;
 	int				index;
 	int				updown; //-1 para abajo, 1 para arriba
-	int				target;
+	struct s_stack	*target;
 	int				cost;
 	struct s_stack	*next;
 }					t_stack;
@@ -61,8 +61,11 @@ void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 void	sort_start(t_stack **a, t_stack **b);
 void	sort_three(t_stack **lst);
+void	sort_bigger(t_stack **a, t_stack **b);
 t_stack	*find_max(t_stack *lst, long max_nbr);
 void	set_target(t_stack *a, t_stack *b);
+void	set_index_updown(t_stack *lst);
+void	set_cost(t_stack *a, t_stack *b);
 
 void	print_aux(t_stack *lst);
 

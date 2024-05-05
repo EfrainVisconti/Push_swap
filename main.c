@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
+/*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:58:07 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/03 19:07:41 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/06 01:32:14 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	main(int argc, char **argv)
 	}
 	sort_start(&a, &b);
 	print_aux(a);
+	free_stack(&b);
 	free_stack(&a);
 	return (0);
 }
