@@ -6,7 +6,7 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:14:21 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/06 01:26:59 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/06 04:19:24 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,9 @@ t_stack	*find_max(t_stack *lst, long max_nbr)
 	t_stack	*max_node;
 
 	max = INT_MIN;
+	max_node = NULL;
 	while (lst)
 	{
-		if (lst->nbr == INT_MAX)
-			return (lst);
 		if (lst->nbr > max && lst->nbr < max_nbr)
 		{
 			max = lst->nbr;

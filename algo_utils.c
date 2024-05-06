@@ -6,7 +6,7 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 20:00:59 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/06 01:43:02 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/06 03:56:10 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	set_target(t_stack *a, t_stack *b)
 	{
 		a->target = find_max(b, a->nbr);
 		if (a->target == NULL)
-			a->target = find_max(b, INT_MIN);
+			a->target = find_max(b, INT_MAX);
 		a = a->next;
 	}
 }
@@ -46,12 +46,14 @@ void	set_index_updown(t_stack *lst)
 	}
 }
 
-void	set_cost(t_stack *a, t_stack *b)
+void	set_cost(t_stack *a, t_stack *b, int size_a, int size_b)
 {
+	size_a = stack_size(a);
+	size_b = stack_size(b);
 	while (a)
 	{
 		if (a->updown == 1 && a->target->updown == -1)
-			a->cost = a->index + (stack_size(b) - a->target->index);
+			a->cost = a->index + (size_b - a->target->index);
 		else if (a->updown == 1 && a->target->updown == 1) 
 		{
 			if (a->index >= a->target->index)
@@ -60,13 +62,13 @@ void	set_cost(t_stack *a, t_stack *b)
 				a->cost = a->target->index;
 		}
 		else if (a->updown == -1 && a->target->updown == 1)
-			a->cost = (stack_size(a) - a->index) + a->target->index;
+			a->cost = a->target->index + (size_a - a->index);
 		else if (a->updown == -1 && a->target->updown == -1)
 		{
-			if ((stack_size(a) - a->index) >= (stack_size(b) - a->target->index))
-				a->cost = (stack_size(a) - a->index);
+			if ((size_a - a->index) >= (size_b - a->target->index))
+				a->cost = (size_a - a->index);
 			else
-				a->cost = (stack_size(b) - a->target->index);
+				a->cost = (size_b - a->target->index);
 		}
 		a = a->next;
 	}

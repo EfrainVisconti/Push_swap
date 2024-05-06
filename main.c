@@ -6,7 +6,7 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:58:07 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/06 01:32:14 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/06 03:34:33 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	main(int argc, char **argv)
 	}
 	sort_start(&a, &b);
 	print_aux(a);
+	print_aux(b);
 	free_stack(&b);
 	free_stack(&a);
 	return (0);

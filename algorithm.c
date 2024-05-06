@@ -6,7 +6,7 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 13:59:04 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/06 01:43:47 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/06 03:36:15 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@ void	sort_bigger(t_stack **a, t_stack **b)
 	pb(b, a);
 	pb(b, a);
 	pb(b, a);
+	pb(b, a);
 	if ((*b)->nbr < (*b)->next->nbr)
 		sb(b);
 	set_index_updown(*a);
 	set_index_updown(*b);
 	set_target(*a, *b);
-	set_cost(*a, *b);
+	set_cost(*a, *b, 0, 0);
 }
 
 void	sort_three(t_stack **lst)
