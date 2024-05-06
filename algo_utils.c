@@ -6,7 +6,7 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 20:00:59 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/06 03:56:10 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/06 16:02:27 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,29 @@ void	set_cost(t_stack *a, t_stack *b, int size_a, int size_b)
 				a->cost = (size_a - a->index);
 			else
 				a->cost = (size_b - a->target->index);
+		}
+		a = a->next;
+	}
+}
+
+void	find_cheapest(t_stack *a)
+{
+	int	cheapest;
+	
+	cheapest = INT_MAX;
+	while (a != NULL)
+	{
+		if (a->cost == 0)
+		{
+			a->cheap = 1;
+			break ;
+		}
+		else if (a->cost <= cheapest)
+		{
+			cheapest = a->cost;
+			a->cheap = 1;
+			if (cheapest == 1)
+				break;
 		}
 		a = a->next;
 	}

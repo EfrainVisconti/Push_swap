@@ -6,7 +6,7 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:03:14 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/06 04:19:37 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/06 15:32:44 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_stack
 	int				updown; //-1 para abajo, 1 para arriba
 	struct s_stack	*target;
 	int				cost;
+	int				cheap;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -66,6 +67,7 @@ t_stack	*find_max(t_stack *lst, long max_nbr);
 void	set_target(t_stack *a, t_stack *b);
 void	set_index_updown(t_stack *lst);
 void	set_cost(t_stack *a, t_stack *b, int size_a, int size_b);
+void	find_cheapest(t_stack *a);
 
 void	print_aux(t_stack *lst);
 

@@ -6,24 +6,50 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 13:59:04 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/06 03:36:15 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/06 16:35:31 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	case_same_dir(t_stack *a)
+{
+	if (a->updown == 1 && a->index > a->target->index)
+	{
+		while (a)
+	}
+}
+
+void	set_stacks(t_stack *a, t_stack *b)
+{
+	set_index_updown(a);
+	set_index_updown(b);
+	set_target(a, b);
+	set_cost(a, b, 0, 0);
+	find_cheapest(a);
+}
+
+void	sorting_loop(t_stack *a, t_stack *b)
+{
+	while (a != NULL)
+	{
+		set_stacks(a, b);
+		if (a->cheap == 1)
+		{
+			if (a->updown == a->target->updown)
+				
+		}
+		a = a->next;
+	}
+	
+}
+
 void	sort_bigger(t_stack **a, t_stack **b)
 {
 	pb(b, a);
 	pb(b, a);
-	pb(b, a);
-	pb(b, a);
 	if ((*b)->nbr < (*b)->next->nbr)
 		sb(b);
-	set_index_updown(*a);
-	set_index_updown(*b);
-	set_target(*a, *b);
-	set_cost(*a, *b, 0, 0);
 }
 
 void	sort_three(t_stack **lst)
