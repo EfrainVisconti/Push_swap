@@ -6,7 +6,7 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:03:14 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/06 15:32:44 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/06 23:29:36 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **b, t_stack **a);
 int	rotate_stack(t_stack **lst);
 void	ra(t_stack **a);
-void	rb(t_stack **a);
+void	rb(t_stack **b);
 void	rr(t_stack **a, t_stack **b);
 t_stack	*prev_last_node(t_stack *lst);
 int	reverse_rotate_stack(t_stack **lst);
@@ -68,6 +68,11 @@ void	set_target(t_stack *a, t_stack *b);
 void	set_index_updown(t_stack *lst);
 void	set_cost(t_stack *a, t_stack *b, int size_a, int size_b);
 void	find_cheapest(t_stack *a);
+void	sorting_loop(t_stack **a, t_stack **b);
+void	back_to_a_loop(t_stack **a, t_stack **b);
+void	set_stacks(t_stack **a, t_stack **b);
+void	case_same_dir(t_stack **a, t_stack **b, int len_a, int len_b);
+void	case_diff_dir(t_stack **a, t_stack **b, int len_a, int len_b);
 
 void	print_aux(t_stack *lst);
 
