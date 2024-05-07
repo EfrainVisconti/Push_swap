@@ -6,110 +6,122 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 13:59:04 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/06 23:37:13 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/08 01:07:20 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	case_diff_dir(t_stack **a, t_stack **b, int len_a, int len_b)
+void	case_diff_dir(t_stack **a, t_stack **b)
 {
-	len_a = stack_size(*a);
-	len_b = stack_size(*b);
+	int	aux_a;
+	int	aux_b;
+	int	index_a;
+	int	index_b;
 	
+	index_a = (*a)->index;
+	index_b = (*a)->target->index;
+	aux_a = (stack_size(*a) - (*a)->index);
+	aux_b = (stack_size(*b) - (*a)->target->index);
 	if ((*a)->updown == 1 && (*a)->target->updown == -1)
 	{
-		while ((*a)->index > 0)
+		while (index_a > 0)
 		{
+			index_a--;
 			ra(a);
-			(*a)->index--;
 		}
-		while ((*a)->target->index < len_b)
+		while (aux_b > 0)
 		{
+			aux_b--;
 			rrb(b);
-			(*a)->target->index++;
 		}
 		
 	}
 	else if ((*a)->updown == -1 && (*a)->target->updown == 1)
 	{
-		while ((*a)->index < len_a)
+		while (aux_a > 0)
 		{
+			aux_a--;
 			rra(a);
-			(*a)->index++;
 		}
-		while ((*a)->target->index > 0)
+		while (index_b > 0)
 		{
+			aux_b--;
 			rb(b);
-			(*a)->target->index--;
 		}
-		
 	}
 }
 
-void	case_same_dir(t_stack **a, t_stack **b, int len_a, int len_b)
+void	case_same_dir(t_stack **a, t_stack **b)
 {
+	int	aux_a;
+	int	aux_b;
+	int	index_a;
+	int	index_b;
+	
+	index_a = (*a)->index;
+	index_b = (*a)->target->index;
+	aux_a = (stack_size(*a) - (*a)->index);
+	aux_b = (stack_size(*b) - (*a)->target->index);
 	if ((*a)->updown == 1)
 	{
-		if ((*a)->index <= (*a)->target->index)
+		if (index_a >= index_b)
 		{
-			while ((*a)->index > 0)
+			while (index_b > 0)
 			{
+				index_a--;
+				index_b--;
 				rr(a, b);
-				(*a)->index--;
-				(*a)->target->index--;
 			}
-			while ((*a)->target->index > 0)
+			while (index_a > 0)
 			{
-				rb(b);
-				(*a)->target->index--;
+				index_a--;
+				ra(a);
 			}
 		}
-		else if ((*a)->index > (*a)->target->index)
+		else if (index_a < index_b)
 		{
-			while ((*a)->target->index > 0)
+			while (index_a > 0)
 			{
+				index_b--;
+				index_a--;
 				rr(a, b);
-				(*a)->target->index--;
-				(*a)->index--;
 			}
-			while ((*a)->index > 0)
+			while (index_b > 0)
 			{
-				ra(a);
-				(*a)->target->index--;
+				index_b--;
+				rb(b);
 			}
 		}
 	}
 	else if ((*a)->updown == -1)
 	{
-		len_a = stack_size(*a);
-		len_b = stack_size(*b);
-		if ((len_a - (*a)->index) <= (len_b - (*a)->target->index))
+		if (aux_a >= aux_b)
 		{
-			while ((*a)->index < len_a)
+			while (aux_b > 0)
 			{
+				aux_b--;
+				aux_a--;
 				rrr(a, b);
-				(*a)->index++;
-				(*a)->target->index++;
 			}
-			while ((*a)->target->index < len_b)
+			while (aux_a > 0)
 			{
-				rrb(b);
-				(*a)->target->index++;
+				aux_a--;
+				rra(a);
 			}
 		}
-		else if ((len_a - (*a)->index) > (len_b - (*a)->target->index))
+		else if (aux_a < aux_b)
 		{
-			while ((*a)->target->index < len_b)
+			while (aux_a > 0)
 			{
+				aux_a--;
+				aux_b--;
 				rrr(a, b);
-				(*a)->index++;
-				(*a)->target->index++;
 			}
-			while ((*a)->index < len_a)
+			while (aux_b > 0)
 			{
-				rra(a);
-				(*a)->index++;
+				aux_b--;
+				rrb(b);
 			}
 		}
 	}
@@ -131,9 +143,9 @@ void	sorting_loop(t_stack **a, t_stack **b)
 		if ((*a)->cheap == 1)
 		{
 			if ((*a)->updown == (*a)->target->updown)
-				case_same_dir(a, b, 0, 0);
+				case_same_dir(a, b);
 			if ((*a)->updown != (*a)->target->updown)
-				case_diff_dir(a, b, 0, 0);
+				case_diff_dir(a, b);
 		}
 		pb(b, a);
 		set_stacks(a, b);
@@ -146,8 +158,8 @@ void	back_to_a_loop(t_stack **a, t_stack **b)
 	{
 		pa(a, b);
 	}
-	if (*a > (*a)->next)
-		ra(a);
+	//if (*a > (*a)->next)
+	//	ra(a);
 }
 
 void	sort_bigger(t_stack **a, t_stack **b)

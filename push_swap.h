@@ -6,7 +6,7 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:03:14 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/06 23:29:36 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/08 01:07:51 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ void	find_cheapest(t_stack *a);
 void	sorting_loop(t_stack **a, t_stack **b);
 void	back_to_a_loop(t_stack **a, t_stack **b);
 void	set_stacks(t_stack **a, t_stack **b);
-void	case_same_dir(t_stack **a, t_stack **b, int len_a, int len_b);
-void	case_diff_dir(t_stack **a, t_stack **b, int len_a, int len_b);
+void	case_same_dir(t_stack **a, t_stack **b);
+void	case_diff_dir(t_stack **a, t_stack **b);
 
 void	print_aux(t_stack *lst);
 
