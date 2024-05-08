@@ -6,24 +6,24 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 13:59:04 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/08 01:07:20 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/08 21:40:14 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	case_diff_dir(t_stack **a, t_stack **b)
+void	case_diff_dir(t_stack **a, t_stack **b, t_stack *cheapest)
 {
 	int	aux_a;
 	int	aux_b;
 	int	index_a;
 	int	index_b;
 	
-	index_a = (*a)->index;
-	index_b = (*a)->target->index;
-	aux_a = (stack_size(*a) - (*a)->index);
-	aux_b = (stack_size(*b) - (*a)->target->index);
-	if ((*a)->updown == 1 && (*a)->target->updown == -1)
+	index_a = cheapest->index;
+	index_b = cheapest->target->index;
+	aux_a = (stack_size(*a) - cheapest->index);
+	aux_b = (stack_size(*b) - cheapest->target->index);
+	if (cheapest->updown == 1 && cheapest->target->updown == -1)
 	{
 		while (index_a > 0)
 		{
@@ -35,9 +35,10 @@ void	case_diff_dir(t_stack **a, t_stack **b)
 			aux_b--;
 			rrb(b);
 		}
+		pb(b, a);
 		
 	}
-	else if ((*a)->updown == -1 && (*a)->target->updown == 1)
+	else if (cheapest->updown == -1 && cheapest->target->updown == 1)
 	{
 		while (aux_a > 0)
 		{
@@ -46,24 +47,25 @@ void	case_diff_dir(t_stack **a, t_stack **b)
 		}
 		while (index_b > 0)
 		{
-			aux_b--;
+			index_b--;
 			rb(b);
 		}
+		pb(b, a);
 	}
 }
 
-void	case_same_dir(t_stack **a, t_stack **b)
+void	case_same_dir(t_stack **a, t_stack **b, t_stack *cheapest)
 {
 	int	aux_a;
 	int	aux_b;
 	int	index_a;
 	int	index_b;
 	
-	index_a = (*a)->index;
-	index_b = (*a)->target->index;
-	aux_a = (stack_size(*a) - (*a)->index);
-	aux_b = (stack_size(*b) - (*a)->target->index);
-	if ((*a)->updown == 1)
+	index_a = cheapest->index;
+	index_b = cheapest->target->index;
+	aux_a = (stack_size(*a) - cheapest->index);
+	aux_b = (stack_size(*b) - cheapest->target->index);
+	if (cheapest->updown == 1)
 	{
 		if (index_a >= index_b)
 		{
@@ -78,6 +80,7 @@ void	case_same_dir(t_stack **a, t_stack **b)
 				index_a--;
 				ra(a);
 			}
+			pb(b, a);
 		}
 		else if (index_a < index_b)
 		{
@@ -92,9 +95,10 @@ void	case_same_dir(t_stack **a, t_stack **b)
 				index_b--;
 				rb(b);
 			}
+			pb(b, a);
 		}
 	}
-	else if ((*a)->updown == -1)
+	else if (cheapest->updown == -1)
 	{
 		if (aux_a >= aux_b)
 		{
@@ -109,6 +113,7 @@ void	case_same_dir(t_stack **a, t_stack **b)
 				aux_a--;
 				rra(a);
 			}
+			pb(b, a);
 		}
 		else if (aux_a < aux_b)
 		{
@@ -123,6 +128,7 @@ void	case_same_dir(t_stack **a, t_stack **b)
 				aux_b--;
 				rrb(b);
 			}
+			pb(b, a);
 		}
 	}
 }
@@ -136,19 +142,53 @@ void	set_stacks(t_stack **a, t_stack **b)
 	find_cheapest(*a);
 }
 
+void	check_top(t_stack **a)
+{
+	t_stack	*min;
+
+	min = find_min(*a, INT_MIN);
+	while ((*a)->nbr != min->nbr)
+	{
+		if (min->updown == 1)
+			ra(a);
+		else
+			rra(a);
+	}
+}
+
+t_stack	*get_cheapest(t_stack *lst)
+{
+	while (lst)
+	{
+		if (lst->cheap == 1)
+			return (lst);
+		lst = lst->next;
+	}
+	return (lst);
+}
+
 void	sorting_loop(t_stack **a, t_stack **b)
 {
-	while (*a)
+	int		len;
+	t_stack	*cheapest;
+
+	len = stack_size(*a);
+	while (len > 0)
 	{
-		if ((*a)->cheap == 1)
+		cheapest = get_cheapest(*a);
+		if (cheapest != NULL)
 		{
-			if ((*a)->updown == (*a)->target->updown)
-				case_same_dir(a, b);
-			if ((*a)->updown != (*a)->target->updown)
-				case_diff_dir(a, b);
+			if (cheapest->updown == cheapest->target->updown)
+			{
+				case_same_dir(a, b, cheapest);
+			}
+			else if (cheapest->updown != cheapest->target->updown)
+			{
+				case_diff_dir(a, b, cheapest);
+			}
 		}
-		pb(b, a);
 		set_stacks(a, b);
+		len = stack_size(*a);
 	}
 }
 
@@ -158,8 +198,6 @@ void	back_to_a_loop(t_stack **a, t_stack **b)
 	{
 		pa(a, b);
 	}
-	//if (*a > (*a)->next)
-	//	ra(a);
 }
 
 void	sort_bigger(t_stack **a, t_stack **b)
@@ -171,9 +209,7 @@ void	sort_bigger(t_stack **a, t_stack **b)
 	set_stacks(a, b);
 	sorting_loop(a, b);
 	back_to_a_loop(a, b);
-	print_aux(*a);
-	ft_printf("------");
-	print_aux(*b);	
+	check_top(a);
 }
 
 void	sort_three(t_stack **lst)

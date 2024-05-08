@@ -6,7 +6,7 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:14:21 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/07 19:20:18 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/08 20:56:02 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,27 @@ t_stack	*find_max(t_stack *lst, long max_nbr)
 		lst = lst->next;
 	}
 	return (max_node);
+}
+
+t_stack	*find_min(t_stack *lst, long min_nbr)
+{
+	long	min;
+	t_stack	*min_node;
+
+	if (!lst)
+		return (NULL);
+	min = INT_MAX;
+	min_node = NULL;
+	while (lst)
+	{
+		if (lst->nbr == INT_MIN)
+			return (lst);
+		if (lst->nbr < min && lst->nbr > min_nbr)
+		{
+			min = lst->nbr;
+			min_node = lst;
+		}
+		lst = lst->next;
+	}
+	return (min_node);
 }

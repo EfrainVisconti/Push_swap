@@ -6,7 +6,7 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:03:14 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/08 01:07:51 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/08 21:02:18 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,17 @@ void	sort_start(t_stack **a, t_stack **b);
 void	sort_three(t_stack **lst);
 void	sort_bigger(t_stack **a, t_stack **b);
 t_stack	*find_max(t_stack *lst, long max_nbr);
+t_stack	*find_min(t_stack *lst, long min_nbr);
 void	set_target(t_stack *a, t_stack *b);
 void	set_index_updown(t_stack *lst);
 void	set_cost(t_stack *a, t_stack *b, int size_a, int size_b);
 void	find_cheapest(t_stack *a);
+t_stack	*get_cheapest(t_stack *lst);
 void	sorting_loop(t_stack **a, t_stack **b);
 void	back_to_a_loop(t_stack **a, t_stack **b);
 void	set_stacks(t_stack **a, t_stack **b);
-void	case_same_dir(t_stack **a, t_stack **b);
-void	case_diff_dir(t_stack **a, t_stack **b);
+void	case_same_dir(t_stack **a, t_stack **b, t_stack *cheapest);
+void	case_diff_dir(t_stack **a, t_stack **b, t_stack *cheapest);
 
 void	print_aux(t_stack *lst);
 
