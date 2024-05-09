@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:03:14 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/09 16:39:56 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/09 21:49:00 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct s_stack
 }					t_stack;
 
 //push_swap
-int		main(int argc, char **argv);
 void	quoted_parse(char *argv, t_stack **a);
 void	stack_init(char **argv, int argc, t_stack **a, int i);
 int		check_args(char **argv, int i, int j);
@@ -63,6 +62,7 @@ void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 void	sort_start(t_stack **a, t_stack **b);
 void	sort_three(t_stack **lst);
+void	sort_five(t_stack **a, t_stack **b);
 void	sort_bigger(t_stack **a, t_stack **b);
 t_stack	*find_max(t_stack *lst, long max_nbr);
 t_stack	*find_min(t_stack *lst, long min_nbr);
@@ -79,5 +79,13 @@ void	case_same_dir(t_stack **a, t_stack **b, t_stack *cheapest);
 void	case_diff_dir(t_stack **a, t_stack **b, t_stack *cheapest);
 void	case_same_dir2(int aux_a, int aux_b, t_stack **a, t_stack **b);
 void	case_same_dir1(int index_a, int index_b, t_stack **a, t_stack **b);
+
+//checker
+void	checker_aux(t_stack **a, t_stack **b, char *line);
+char	*check_line(t_stack **a, t_stack **b, char *line);
+void	check_aux(t_stack **a, t_stack **b, char *line);
+t_stack	*checker_init(int argc, char **argv);
+t_stack	*checker_init_aux(char **argv);
+void	ft_error_ch(void);
 
 #endif

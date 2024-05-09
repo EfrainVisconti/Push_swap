@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 02:12:27 by usuario           #+#    #+#             */
-/*   Updated: 2024/05/09 02:27:42 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/09 21:33:57 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,39 +15,46 @@
 void	check_aux(t_stack **a, t_stack **b, char *line)
 {
 	if (line[2] == 'a')
-		ft_rra(a, 1);
+		reverse_rotate_stack(a);
 	else if (line[2] == 'b')
-		ft_rrb(b, 1);
+		reverse_rotate_stack(b);
 	else if (line[2] == 'r')
-		ft_rrr(a, b, 1);
+	{
+		reverse_rotate_stack(a);
+		reverse_rotate_stack(b);
+	}
 }
 
 char	*check_line(t_stack **a, t_stack **b, char *line)
 {
 	if (line[0] == 's' && line[1] == 'a' && line[2] == '\n')
-		ft_sa(a, 1);
+		swap_stack(a);
 	else if (line[0] == 's' && line[1] == 'b' && line[2] == '\n')
-		ft_sb(b, 1);
+		swap_stack(b);
 	else if (line[0] == 'p' && line[1] == 'a' && line[2] == '\n')
-		ft_pa(a, b, 1);
+		push_stack(a, b);
 	else if (line[0] == 'p' && line[1] == 'b' && line[2] == '\n')
-		ft_pb(a, b, 1);
+		push_stack(b, a);
 	else if (line[0] == 'r' && line[1] == 'a' && line[2] == '\n')
-		ft_ra(a, 1);
+		rotate_stack(a);
 	else if (line[0] == 'r' && line[1] == 'b' && line[2] == '\n')
-		ft_rb(b, 1);
+		rotate_stack(b);
 	else if (line[0] == 'r' && line[1] == 'r' && line[3] == '\n')
-		ft_check_sub(a, b, line);
+		check_aux(a, b, line);
 	else if (line[0] == 'r' && line[1] == 'r' && line[2] == '\n')
-		ft_rr(a, b, 1);
+	{
+		rotate_stack(a);
+		rotate_stack(b);
+	}
 	else if (line[0] == 's' && line[1] == 's' && line[2] == '\n')
-		ft_ss(a, b, 1);
-	else
-		ft_error_ch();
+	{
+		swap_stack(a);
+		swap_stack(b);
+	}
 	return (get_next_line(0));
 }
 
-void	checker_(t_stack **a, t_stack **b, char *line)
+void	checker_aux(t_stack **a, t_stack **b, char *line)
 {
 	char	*tmp;
 
@@ -58,11 +65,11 @@ void	checker_(t_stack **a, t_stack **b, char *line)
 		free(tmp);
 	}
 	if (*b)
-		write(1, "KO\n", 3);
-	else if (!ft_checksorted(*a))
-		write(1, "KO\n", 3);
+		ft_printf("KO\n");
+	else if (!check_sorted(*a))
+		ft_printf("KO\n");
 	else
-		write(1, "OK\n", 3);
+		ft_printf("OK\n");
 	free(line);
 }
 
@@ -81,12 +88,12 @@ int	main(int argc, char **argv)
 	}
 	line = get_next_line(0);
 	if (!line && !check_sorted(a))
-		write(1, "KO\n", 3);
+		ft_printf("KO\n");
 	else if (!line && check_sorted(a))
-		write(1, "OK\n", 3);
+		ft_printf("OK\n");
 	else
-		checker_(&a, &b, line);
-	ft_free(&b);
-	ft_free(&a);
+		checker_aux(&a, &b, line);
+	free_stack(&b);
+	free_stack(&a);
 	return (0);
 }

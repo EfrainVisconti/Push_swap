@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 13:59:04 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/09 16:25:25 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/09 22:14:04 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,27 @@ void	sort_bigger(t_stack **a, t_stack **b)
 	check_top(a);
 }
 
+void	sort_five(t_stack **a, t_stack **b)
+{
+	t_stack *min;
+	t_stack *max;
+
+	while (stack_size(*a) > 3)
+	{
+		min = find_min(*a, INT_MIN);
+		max = find_max(*a, INT_MAX);
+		if ((*a)->nbr == max->nbr)
+			ra(a);
+		else if ((*a)->nbr == min->nbr)
+			rra(a);
+		else
+			pb(a, b);
+	}
+	sort_three(a); // Ordenamos los tres elementos restantes en la pila 'a'
+	while (*b)
+		pa(a, b); // Movemos los elementos de la pila 'b' a 'a'
+}
+
 void	sort_three(t_stack **lst)
 {
 	if ((*lst)->nbr < (((*lst)->next)->next)->nbr
@@ -84,15 +105,11 @@ void	sort_three(t_stack **lst)
 void	sort_start(t_stack **a, t_stack **b)
 {
 	if (stack_size(*a) == 2)
-	{
 		sa(a);
-	}
 	else if (stack_size(*a) == 3)
-	{
 		sort_three(a);
-	}
+	else if (stack_size(*a) == 5)
+		sort_five(a, b);
 	else
-	{
 		sort_bigger(a, b);
-	}
 }

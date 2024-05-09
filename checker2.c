@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 02:16:58 by usuario           #+#    #+#             */
-/*   Updated: 2024/05/09 02:29:18 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/09 21:34:57 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,45 @@
 
 void	ft_error_ch(void)
 {
-	write(1, "Error\n", 6);
+	ft_printf("Error\n");
 	exit(EXIT_FAILURE);
+}
+
+t_stack	*checker_init_aux(char **argv)
+{
+	t_stack	*a;
+	char	**tmp;
+	int		i;
+
+	a = NULL;
+	i = 0;
+	tmp = ft_split(argv[1], 32);
+	while (tmp[i])
+	{
+		add_back_node(&a, new_node(ft_atoi_push(tmp[i])));
+		i++;
+	}
+	free_array(tmp);
+	free(tmp);
+	return (a);
 }
 
 t_stack	*checker_init(int argc, char **argv)
 {
 	t_stack	*a;
 	int		i;
-	int		j;
 
 	i = 1;
 	a = NULL;
 	if (argc < 2)
 		ft_error();
 	if (argc == 2)
-		a = ft_sub_process(argv);
+		a = checker_init_aux(argv);
 	else
 	{
 		while (i < argc)
 		{
-			j = ft_atoi2(argv[i]);
-			ft_add_back(&a, ft_stack_new(j));
+			add_back_node(&a, new_node(ft_atoi_push(argv[i])));
 			i++;
 		}
 	}
