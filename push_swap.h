@@ -6,7 +6,7 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:03:14 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/09 13:37:04 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/09 15:07:07 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	set_index_updown(t_stack *lst);
 void	set_cost(t_stack *a, t_stack *b, int size_a, int size_b);
 void	find_cheapest(t_stack *a);
 t_stack	*get_cheapest(t_stack *lst);
+void	check_top(t_stack **a);
 void	sorting_loop(t_stack **a, t_stack **b);
 void	back_to_a_loop(t_stack **a, t_stack **b);
 void	set_stacks(t_stack **a, t_stack **b);
