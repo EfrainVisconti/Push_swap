@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   algo_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 20:00:59 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/09 13:58:57 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/09 16:44:34 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void set_target(t_stack *a, t_stack *b)
+void	set_target(t_stack *a, t_stack *b)
 {
 	while (a)
 	{
@@ -23,11 +23,11 @@ void set_target(t_stack *a, t_stack *b)
 	}
 }
 
-void set_index_updown(t_stack *lst)
+void	set_index_updown(t_stack *lst)
 {
-	int i;
-	int half;
-	int len;
+	int	i;
+	int	half;
+	int	len;
 
 	len = stack_size(lst);
 	half = (len / 2);
@@ -51,7 +51,7 @@ void set_index_updown(t_stack *lst)
 	}
 }
 
-void set_cost(t_stack *a, t_stack *b, int size_a, int size_b)
+void	set_cost(t_stack *a, t_stack *b, int size_a, int size_b)
 {
 	size_a = stack_size(a);
 	size_b = stack_size(b);
@@ -79,10 +79,10 @@ void set_cost(t_stack *a, t_stack *b, int size_a, int size_b)
 	}
 }
 
-void find_cheapest(t_stack *a)
+void	find_cheapest(t_stack *a)
 {
-	int cheapest;
-	t_stack *cheapest_node;
+	int		cheapest;
+	t_stack	*cheapest_node;
 
 	cheapest = INT_MAX;
 	cheapest_node = NULL;
@@ -91,7 +91,7 @@ void find_cheapest(t_stack *a)
 		if (a->cost == 0)
 		{
 			a->cheap = 1;
-			return;
+			return ;
 		}
 		if (a->cost < cheapest)
 		{

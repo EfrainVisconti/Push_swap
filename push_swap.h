@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:03:14 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/09 15:07:07 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/09 16:39:56 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,7 @@ void	back_to_a_loop(t_stack **a, t_stack **b);
 void	set_stacks(t_stack **a, t_stack **b);
 void	case_same_dir(t_stack **a, t_stack **b, t_stack *cheapest);
 void	case_diff_dir(t_stack **a, t_stack **b, t_stack *cheapest);
+void	case_same_dir2(int aux_a, int aux_b, t_stack **a, t_stack **b);
+void	case_same_dir1(int index_a, int index_b, t_stack **a, t_stack **b);
 
 #endif

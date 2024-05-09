@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 13:59:04 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/09 14:07:44 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/09 16:25:25 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,21 +59,21 @@ void	sort_bigger(t_stack **a, t_stack **b)
 
 void	sort_three(t_stack **lst)
 {
-	if ((*lst)->nbr < (((*lst)->next)->next)->nbr &&
-		((*lst)->next)->nbr < (((*lst)->next)->next)->nbr)
-			sa(lst);
-	else if ((*lst)->nbr > (((*lst)->next)->next)->nbr &&
-		(*lst)->nbr < ((*lst)->next)->nbr)
-			rra(lst);
-	else if ((*lst)->nbr > (((*lst)->next)->next)->nbr &&
-		((*lst)->next)->nbr < (((*lst)->next)->next)->nbr)
-			ra(lst);
-	else if ((*lst)->nbr < (((*lst)->next)->next)->nbr &&
-		((*lst)->next)->nbr > (((*lst)->next)->next)->nbr)
-		{
-			sa(lst);
-			ra(lst);
-		}
+	if ((*lst)->nbr < (((*lst)->next)->next)->nbr
+		&& ((*lst)->next)->nbr < (((*lst)->next)->next)->nbr)
+		sa(lst);
+	else if ((*lst)->nbr > (((*lst)->next)->next)->nbr
+		&& (*lst)->nbr < ((*lst)->next)->nbr)
+		rra(lst);
+	else if ((*lst)->nbr > (((*lst)->next)->next)->nbr
+		&& ((*lst)->next)->nbr < (((*lst)->next)->next)->nbr)
+		ra(lst);
+	else if ((*lst)->nbr < (((*lst)->next)->next)->nbr
+		&& ((*lst)->next)->nbr > (((*lst)->next)->next)->nbr)
+	{
+		sa(lst);
+		ra(lst);
+	}
 	else
 	{
 		ra(lst);

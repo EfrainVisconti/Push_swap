@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: usuario <usuario@student.42.fr>            +#+  +:+       +#+         #
+#    By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 13:59:06 by eviscont          #+#    #+#              #
-#    Updated: 2024/05/09 15:05:38 by usuario          ###   ########.fr        #
+#    Updated: 2024/05/09 18:35:48 by eviscont         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 NAME = push_swap
 
 # Ficheros
-SRCS = main.c lst_utils.c check_args.c utils.c swap.c push.c rotate.c reverse_rotate.c algorithm.c algo_utils.c algo_utils2.c
+SRCS = main.c lst_utils.c check_args.c utils.c swap.c push.c rotate.c reverse_rotate.c algo_utils.c algo_utils2.c algo_utils3.c algorithm.c
 OBJS = $(SRCS:.c=.o)
 HEADER = push_swap.h
 
