@@ -6,7 +6,7 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:03:14 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/08 21:02:18 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/09 13:37:04 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,41 +22,42 @@ typedef struct s_stack
 {
 	int				nbr;
 	int				index;
-	int				updown; //-1 para abajo, 1 para arriba
+	int				updown;
 	struct s_stack	*target;
 	int				cost;
 	int				cheap;
 	struct s_stack	*next;
 }					t_stack;
 
-int	main(int argc, char **argv);
+//push_swap
+int		main(int argc, char **argv);
 void	quoted_parse(char *argv, t_stack **a);
 void	stack_init(char **argv, int argc, t_stack **a, int i);
-int	check_args(char **argv, int i, int j);
-int	ft_isvalid(int c);
+int		check_args(char **argv, int i, int j);
+int		ft_isvalid(int c);
 void	ft_error(void);
-int	stack_size(t_stack *lst);
+int		stack_size(t_stack *lst);
 void	add_back_node(t_stack **lst, t_stack *new);
 t_stack	*last_node(t_stack *lst);
 t_stack	*new_node(int content);
-int	ft_atoi_push(char *str);
+int		ft_atoi_push(char *str);
 void	free_array(char **array);
 void	free_stack(t_stack **a);
-int	check_duplicates(char **argv, int i);
-int	check_sorted(t_stack *lst);
-int	swap_stack(t_stack **a);
+int		check_duplicates(char **argv, int i);
+int		check_sorted(t_stack *lst);
+int		swap_stack(t_stack **a);
 void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
-int	push_stack(t_stack **dst, t_stack **src);
+int		push_stack(t_stack **dst, t_stack **src);
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **b, t_stack **a);
-int	rotate_stack(t_stack **lst);
+int		rotate_stack(t_stack **lst);
 void	ra(t_stack **a);
 void	rb(t_stack **b);
 void	rr(t_stack **a, t_stack **b);
 t_stack	*prev_last_node(t_stack *lst);
-int	reverse_rotate_stack(t_stack **lst);
+int		reverse_rotate_stack(t_stack **lst);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
@@ -75,7 +76,5 @@ void	back_to_a_loop(t_stack **a, t_stack **b);
 void	set_stacks(t_stack **a, t_stack **b);
 void	case_same_dir(t_stack **a, t_stack **b, t_stack *cheapest);
 void	case_diff_dir(t_stack **a, t_stack **b, t_stack *cheapest);
-
-void	print_aux(t_stack *lst);
 
 #endif

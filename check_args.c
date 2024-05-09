@@ -6,7 +6,7 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 19:30:28 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/06 00:35:38 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/09 14:03:42 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	check_sorted(t_stack *lst)
 
 int	check_duplicates(char **argv, int i)
 {
-	int j;
-	
+	int	j;
+
 	while (argv[i] != NULL)
 	{
 		if (*argv[i] == '\0')

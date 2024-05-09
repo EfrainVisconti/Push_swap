@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
+/*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 20:03:42 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/03 13:56:33 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/09 13:10:35 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ t_stack	*prev_last_node(t_stack *lst)
 
 int	reverse_rotate_stack(t_stack **lst)
 {
-	t_stack *temp1;
-	t_stack *temp2;
-	t_stack *temp3;
+	t_stack	*temp1;
+	t_stack	*temp2;
+	t_stack	*temp3;
 
 	if (*lst == NULL || (*lst)->next == NULL)
 		return (0);

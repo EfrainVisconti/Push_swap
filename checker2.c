@@ -1,42 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   checker2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 15:55:48 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/09 13:11:07 by usuario          ###   ########.fr       */
+/*   Created: 2024/05/09 02:16:58 by usuario           #+#    #+#             */
+/*   Updated: 2024/05/09 02:29:18 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push_stack(t_stack **dst, t_stack **src)
+void	ft_error_ch(void)
 {
-	t_stack	*temp1;
-	t_stack	*temp2;
-	t_stack	*temp3;
-
-	if (*src == NULL)
-		return (0);
-	temp1 = *src;
-	temp2 = (*src)->next;
-	temp3 = *dst;
-	*dst = temp1;
-	*src = temp2;
-	(*dst)->next = temp3;
-	return (1);
+	write(1, "Error\n", 6);
+	exit(EXIT_FAILURE);
 }
 
-void	pa(t_stack **a, t_stack **b)
+t_stack	*checker_init(int argc, char **argv)
 {
-	if (push_stack(a, b) == 1)
-		ft_printf("pa\n");
-}
+	t_stack	*a;
+	int		i;
+	int		j;
 
-void	pb(t_stack **b, t_stack **a)
-{
-	if (push_stack(b, a) == 1)
-		ft_printf("pb\n");
+	i = 1;
+	a = NULL;
+	if (argc < 2)
+		ft_error();
+	if (argc == 2)
+		a = ft_sub_process(argv);
+	else
+	{
+		while (i < argc)
+		{
+			j = ft_atoi2(argv[i]);
+			ft_add_back(&a, ft_stack_new(j));
+			i++;
+		}
+	}
+	return (a);
 }

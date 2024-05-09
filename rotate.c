@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
+/*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 18:52:13 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/02 20:03:09 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/09 13:09:58 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	rotate_stack(t_stack **lst)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (*lst == NULL || (*lst)->next == NULL)
 		return (0);

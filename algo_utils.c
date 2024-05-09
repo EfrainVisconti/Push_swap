@@ -6,7 +6,7 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 20:00:59 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/08 04:56:24 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/09 13:58:57 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,27 @@ void find_cheapest(t_stack *a)
 	{
 		cheapest_node->cheap = 1;
 	}
+}
+
+t_stack	*find_min(t_stack *lst, long min_nbr)
+{
+	long	min;
+	t_stack	*min_node;
+
+	if (!lst)
+		return (NULL);
+	min = INT_MAX;
+	min_node = NULL;
+	while (lst)
+	{
+		if (lst->nbr == INT_MIN)
+			return (lst);
+		if (lst->nbr < min && lst->nbr > min_nbr)
+		{
+			min = lst->nbr;
+			min_node = lst;
+		}
+		lst = lst->next;
+	}
+	return (min_node);
 }

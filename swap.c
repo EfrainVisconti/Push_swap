@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
+/*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 13:06:36 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/02 19:48:36 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/09 13:09:33 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 int	swap_stack(t_stack **lst)
-{	
-	t_stack *temp2;
-	t_stack *temp1;
-	
+{
+	t_stack	*temp2;
+	t_stack	*temp1;
+
 	if (*lst == NULL || stack_size(*lst) < 2)
 		return (0);
 	temp2 = (*lst)->next;

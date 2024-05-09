@@ -6,7 +6,7 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:58:07 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/06 22:45:11 by usuario          ###   ########.fr       */
+/*   Updated: 2024/05/09 13:17:27 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,18 @@ void	stack_init(char **argv, int argc, t_stack **a, int i)
 	while (argv[i] != NULL)
 	{
 		if (argv)
-		add_back_node(a, new_node(ft_atoi_push(argv[i])));
-		i++;
+		{
+			add_back_node(a, new_node(ft_atoi_push(argv[i])));
+			i++;
+		}
 	}
 	if (argc == 2)
 		free_array(argv);
 	if (check_sorted(*a) == 1)
-		{
-			free_stack(a);
-			exit (0);
-		}
+	{
+		free_stack(a);
+		exit (0);
+	}
 }
 
 void	quoted_parse(char *argv, t_stack **a)
@@ -45,7 +47,7 @@ void	quoted_parse(char *argv, t_stack **a)
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
-	t_stack *b;
+	t_stack	*b;
 
 	a = NULL;
 	b = NULL;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
+/*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 10:20:16 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/03 19:07:15 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/09 13:07:17 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ void	free_array(char **array)
 
 void	free_stack(t_stack **a)
 {
-	t_stack *temp;
-	
+	t_stack	*temp;
+
 	if (a)
 	{
 		while (*a)
-		{	
+		{
 			temp = (*a)->next;
 			free(*a);
 			*a = temp;
