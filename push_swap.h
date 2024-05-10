@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:03:14 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/09 21:49:00 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/10 12:11:29 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 void	sort_start(t_stack **a, t_stack **b);
 void	sort_three(t_stack **lst);
-void	sort_five(t_stack **a, t_stack **b);
+void	sort_five(t_stack **a, t_stack **b, t_stack *min1, t_stack *min2);
 void	sort_bigger(t_stack **a, t_stack **b);
 t_stack	*find_max(t_stack *lst, long max_nbr);
 t_stack	*find_min(t_stack *lst, long min_nbr);
@@ -87,5 +87,7 @@ void	check_aux(t_stack **a, t_stack **b, char *line);
 t_stack	*checker_init(int argc, char **argv);
 t_stack	*checker_init_aux(char **argv);
 void	ft_error_ch(void);
+void	check_aux2(t_stack **a, t_stack **b);
+void	check_aux3(t_stack **a, t_stack **b);
 
 #endif

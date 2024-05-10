@@ -6,11 +6,23 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 02:16:58 by usuario           #+#    #+#             */
-/*   Updated: 2024/05/09 21:34:57 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/10 12:30:27 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	check_aux3(t_stack **a, t_stack **b)
+{
+	swap_stack(a);
+	swap_stack(b);
+}
+
+void	check_aux2(t_stack **a, t_stack **b)
+{
+	rotate_stack(a);
+	rotate_stack(b);
+}
 
 void	ft_error_ch(void)
 {
@@ -21,19 +33,22 @@ void	ft_error_ch(void)
 t_stack	*checker_init_aux(char **argv)
 {
 	t_stack	*a;
-	char	**tmp;
+	char	**temp;
 	int		i;
 
 	a = NULL;
 	i = 0;
-	tmp = ft_split(argv[1], 32);
-	while (tmp[i])
+	temp = ft_split(argv[1], 32);
+	if (check_duplicates(temp, 0) == 0 || check_args(argv, 1, 0) == 0)
 	{
-		add_back_node(&a, new_node(ft_atoi_push(tmp[i])));
+		free_array(temp);
+		ft_error();
+	}
+	while (temp[i])
+	{
+		add_back_node(&a, new_node(ft_atoi_push(temp[i])));
 		i++;
 	}
-	free_array(tmp);
-	free(tmp);
 	return (a);
 }
 
@@ -45,11 +60,13 @@ t_stack	*checker_init(int argc, char **argv)
 	i = 1;
 	a = NULL;
 	if (argc < 2)
-		ft_error();
+		exit(0);
 	if (argc == 2)
 		a = checker_init_aux(argv);
 	else
 	{
+		if (check_duplicates(argv, 1) == 0)
+			ft_error();
 		while (i < argc)
 		{
 			add_back_node(&a, new_node(ft_atoi_push(argv[i])));

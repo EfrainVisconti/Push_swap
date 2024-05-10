@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 02:12:27 by usuario           #+#    #+#             */
-/*   Updated: 2024/05/09 21:33:57 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/10 12:25:30 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,11 @@ char	*check_line(t_stack **a, t_stack **b, char *line)
 	else if (line[0] == 'r' && line[1] == 'r' && line[3] == '\n')
 		check_aux(a, b, line);
 	else if (line[0] == 'r' && line[1] == 'r' && line[2] == '\n')
-	{
-		rotate_stack(a);
-		rotate_stack(b);
-	}
+		check_aux2(a, b);
 	else if (line[0] == 's' && line[1] == 's' && line[2] == '\n')
-	{
-		swap_stack(a);
-		swap_stack(b);
-	}
+		check_aux3(a, b);
+	else
+		ft_error_ch();
 	return (get_next_line(0));
 }
 

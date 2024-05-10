@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:36:39 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/09 16:50:34 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/10 11:39:35 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,12 @@ t_stack	*get_cheapest(t_stack *lst)
 		lst = lst->next;
 	}
 	return (lst);
+}
+
+void	back_to_a_loop(t_stack **a, t_stack **b)
+{
+	while (*b)
+	{
+		pa(a, b);
+	}
 }

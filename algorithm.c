@@ -6,7 +6,7 @@
 /*   By: eviscont <eviscont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 13:59:04 by eviscont          #+#    #+#             */
-/*   Updated: 2024/05/09 22:14:04 by eviscont         ###   ########.fr       */
+/*   Updated: 2024/05/10 11:42:28 by eviscont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,6 @@ void	sorting_loop(t_stack **a, t_stack **b)
 	}
 }
 
-void	back_to_a_loop(t_stack **a, t_stack **b)
-{
-	while (*b)
-	{
-		pa(a, b);
-	}
-}
-
 void	sort_bigger(t_stack **a, t_stack **b)
 {
 	pb(b, a);
@@ -57,25 +49,31 @@ void	sort_bigger(t_stack **a, t_stack **b)
 	check_top(a);
 }
 
-void	sort_five(t_stack **a, t_stack **b)
+void	sort_five(t_stack **a, t_stack **b, t_stack *min1, t_stack *min2)
 {
-	t_stack *min;
-	t_stack *max;
-
-	while (stack_size(*a) > 3)
+	set_index_updown(*a);
+	min1 = find_min(*a, INT_MIN);
+	while (*a != min1 && min1->updown == 1)
+		ra(a);
+	while (*a != min1 && min1->updown == -1)
+		rra(a);
+	pb(b, a);
+	set_index_updown(*a);
+	min2 = find_min(*a, INT_MIN);
+	while (*a != min2 && min2->updown == 1)
+		ra(a);
+	while (*a != min2 && min2->updown == -1)
+		rra(a);
+	pb(b, a);
+	sort_three(a);
+	if ((*b)->nbr > (*b)->next->nbr)
+		pa(a, b);
+	else
 	{
-		min = find_min(*a, INT_MIN);
-		max = find_max(*a, INT_MAX);
-		if ((*a)->nbr == max->nbr)
-			ra(a);
-		else if ((*a)->nbr == min->nbr)
-			rra(a);
-		else
-			pb(a, b);
+		sb(b);
+		pa(a, b);
 	}
-	sort_three(a); // Ordenamos los tres elementos restantes en la pila 'a'
-	while (*b)
-		pa(a, b); // Movemos los elementos de la pila 'b' a 'a'
+	pa(a, b);
 }
 
 void	sort_three(t_stack **lst)
@@ -109,7 +107,7 @@ void	sort_start(t_stack **a, t_stack **b)
 	else if (stack_size(*a) == 3)
 		sort_three(a);
 	else if (stack_size(*a) == 5)
-		sort_five(a, b);
+		sort_five(a, b, 0, 0);
 	else
 		sort_bigger(a, b);
 }
